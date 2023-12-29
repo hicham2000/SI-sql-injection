@@ -38,10 +38,10 @@ public class EmployeeService {
     public List<Employee> findByNativeEmployee(String empName){
 
         // sql injection attack
-      //  Query query=entityManager.createNativeQuery("SELECT * FROM EMPLOYEE WHERE EMP_NAME ='"+empName+"'",Employee.class);
+        Query query=entityManager.createNativeQuery("SELECT * FROM EMPLOYEE WHERE EMP_NAME ='"+empName+"'",Employee.class);
 
-        Query query=entityManager.createNativeQuery("SELECT * FROM EMPLOYEE WHERE EMP_NAME = :empName ",Employee.class);
-        query.setParameter("empName", empName);
+       // Query query=entityManager.createNativeQuery("SELECT * FROM EMPLOYEE WHERE EMP_NAME = :empName ",Employee.class);
+       // query.setParameter("empName", empName);
 
         return query.getResultList();
     }
